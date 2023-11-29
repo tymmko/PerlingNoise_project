@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+  <title>Generator</title>
+
+  <link rel="stylesheet" href="/static/styles_landscape.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header class="header">
+
+  <span class="logo">
+    <div class="name">BeNG</div>
+    <div class="ss">best noise generator</div>
+  </span>
+
+  <nav class="nav">
+<a class="nav__1" href="https://linktr.ee/perlinggenerator">about us</a>
+<a class="nav__2" href="https://youtu.be/PxQtu9gf5ws">user's guide</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="section">
+    <nav class="nav2">
+        <a class="nav__4" href="{{ url_for('perling_noise_eng') }}">perlin noise</a>
+        <a class="nav__5" href="{{ url_for('landscape_generation_eng') }}">landscape generation</a>
+    </nav>
+  </section>
+  <form action="/process-landscape" method="post">
+    <section class="section1">
+      <div class="frame">
+        <div class="formmenu">
+          <div class="form">
+            <label for="colorInput">Max Height <div></div></label>
+            <input type="string" id="max_height" name="max_height">
+          </div>
+          <div class="form">
+            <label for="numberInput">Seed <div></div></label>
+            <input type="string" id="numberInput" name="numberInput" min="1" required required>
+          </div>
+        </div>
+
+        <form action="/process-landscape" method="POST">
+          <div class="dropdownmenu">
+            <select class="dropdown" name="size">
+              <option value="size">Size</option>
+              <option value="2048x2048s">2048 x 2048</option>
+              <option value="1024x1024s">1024 x 1024</option>
+              <option value="512x512s">512 x 512</option>
+              <option value="256x256s">256 x 256</option>
+              <option value="128x128s">128 x 128</option>
+              <option value="64x64s">64 x 64</option>
+              <option value="32x32s">32 x 32</option>
+              <option value="16x16s">16 x 16</option>
+              <option value="8x8s">8 x 8</option>
+            </select>
+
+            <select class="dropdown" name="chunk_size">
+              <option value="chunk size">Chunk size</option>
+              <option value="2048x2048c">2048 x 2048</option>
+              <option value="1024x1024c">1024 x 1024</option>
+              <option value="512x512c">512 x 512</option>
+              <option value="256x256c">256 x 256</option>
+              <option value="128x128c">128 x 128</option>
+              <option value="64x64c">64 x 64</option>
+              <option value="32x32c">32 x 32</option>
+              <option value="16x16c">16 x 16</option>
+              <option value="8x8c">8 x 8</option>
+              <option value="4x4c">4 x 4</option>
+              <option value="2x2c">2 x 2</option>
+            </select>
+            <select class="dropdown" name="octaves">
+              <option value="number of octaves">Octave number</option>
+              <option value="10">10</option>
+              <option value="9">9</option>
+              <option value="8">8</option>
+              <option value="7">7</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </div>
+        </form>
+        <div>
+          <a>Hint: For the program to work correctly, follow this formula:
+            size >= size of chunk >= 2^octaves
+          </a>
+        </div>
+        {% if error_message %}
+          <div id="error-message">Error: {{ error_message }}</div>
+        {% endif %}
+      </div>
+  </form>
+      <div class="frame1">
+        <div class="picture"> <img src="{{url_for('static', filename='landscape.png')}}"/> </div>
+          <div class="buttons">
+              <button class="b1" type="submit" value="generate">Generate</button>
+            <form action="/download" method="POST">
+              <div class="buttons">
+                <button class="b2" type="submit " value="save">Save</button>
+              </div>
+            </form>
+            <form action="/format-change" method="post" id="format">
+              <select class="b3" name="format" onchange="submitFormat()">
+                <option value="Choose format">Choose format</option>
+                <option value="PNG">PNG</option>
+                <option value="BMP">BMP</option>
+              </select>
+            </form>
+            <script>
+              function submitFormat() {
+                document.getElementById("format").submit();
+              }
+            </script>
+          </div>
+      </div>
+    </section>
+
+
+</main>
+
+</body>
+</html>

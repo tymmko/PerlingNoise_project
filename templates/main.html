@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>document</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+
+  <span class="logo">
+    <div class="name">Назва нашого сайту</div>
+    <div class="ss">І що ми можемо зробити</div>
+  </span>
+
+  <nav class="nav">
+<a class="nav__1" href="https://www.google.com/">про нас</a>
+<a class="nav__2" href="https://www.google.com/">завантаження</a>
+<select class="nav__3">
+  <option value="option1">українська</option>
+  <option value="option2">english</option>
+</select>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="section">
+<nav class="nav2">
+  <a class="nav__4" href="https://www.google.com/">шум перлінгу</a>
+  <a class="nav__5" href="https://www.google.com/">генерація ландшафту</a>
+</nav>
+  </section>
+
+  <section class="section1">
+    <div class="frame">
+      <article class="button1">Налаштування кольору</article>
+      <article class="button2">Налаштування кольору
+      </article>
+      <article class="button3">Налаштування кольору
+      </article>
+    </div>
+
+    <div class="frame1">
+      <div class="picture">
+      </div>
+      <div class =range>
+        <input type="range" id="volume" name="volume"
+               min="0" max="11">
+        <label for="volume"></label>
+      </div>
+      <form method="POST" action="/result">
+        <div class="buttons">
+          <button class="b1" type="submit" name="action" value="generate">Згенерувати</button>
+          <button class="b2" type="submit" name="action" value="save">Зберегти</button>
+          <select class="b3">
+            <option value="option1">PNG</option>
+            <option value="option2">JPG</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="section2">
+    <div class="n1" >
+      <a class="nav__6"href="https://www.google.com/"> < Назад </a>
+      <span class="logo1">Мої мапи</span>
+    </div>
+    <!-- <span class="logo1">Мої мапи</span> -->
+  </div>
+
+
+
+</main>
+
+</body>
+</html>
